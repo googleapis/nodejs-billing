@@ -1,26 +1,12 @@
 {
-  "updateTime": "2020-02-21T01:27:47.242429Z",
+  "updateTime": "2020-02-27T02:09:52.179952Z",
   "sources": [
-    {
-      "git": {
-        "name": ".",
-        "remote": "git@github.com:googleapis/nodejs-billing.git",
-        "sha": "634271ae3f39f72b51b848decc4474cac03f0529"
-      }
-    },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "17567c4a1ef0a9b50faa87024d66f8acbb561089",
-        "internalRef": "296332968"
-      }
-    },
-    {
-      "git": {
-        "name": "synthtool",
-        "remote": "git@github.com:googleapis/synthtool.git",
-        "sha": "1b40eb40f7e3c171a059317158f978a195445c98"
+        "sha": "f077632ba7fee588922d9e8717ee272039be126d",
+        "internalRef": "297405063"
       }
     },
     {
