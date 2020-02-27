@@ -3,6 +3,10 @@
   "skip": [
     "https://codecov.io/gh/googleapis/",
     "www.googleapis.com",
-    "img.shields.io"
+    "img.shields.io",
+    "https://googleapis.dev/nodejs/billing/latest/.*",
+    "https://www.npmjs.org/package/@google-cloud/billing",
+    "https://github.com/googleapis/nodejs-billing/tree/master/samples",
+    "https://github.com/googleapis/nodejs-billing/blob/master/samples/quickstart.js"
   ]
 }
