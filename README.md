@@ -55,26 +55,26 @@ npm install @google-cloud/billing
 ### Using the client library
 
 ```javascript
-  // Imports the Google Cloud client library
-  const {CloudBillingClient} = require('@google-cloud/billing');
+// Imports the Google Cloud client library
+const {CloudBillingClient} = require('@google-cloud/billing');
 
-  // Creates a client
-  const client = new CloudBillingClient();
+// Creates a client
+const client = new CloudBillingClient();
 
-  // name = 'my-project' // Project name to list billing accounts for.
+// name = 'my-project' // Project name to list billing accounts for.
 
-  async function listBillingAccounts() {
-    const [accounts] = await client.listBillingAccounts({
-      name,
-    });
-    console.info(`found ${accounts.length} billing accounts:`);
-    for (const account of accounts) {
-      console.info(`${account.displayName}:`);
-      console.info(`\topen: ${account.open}`);
-      console.info(`\tparentBillingAccount: ${account.masterBillingAccount}`);
-    }
+async function listBillingAccounts() {
+  const [accounts] = await client.listBillingAccounts({
+    name,
+  });
+  console.info(`found ${accounts.length} billing accounts:`);
+  for (const account of accounts) {
+    console.info(`${account.displayName}:`);
+    console.info(`\topen: ${account.open}`);
+    console.info(`\tparentBillingAccount: ${account.masterBillingAccount}`);
   }
-  listBillingAccounts();
+}
+listBillingAccounts();
 
 ```
 
@@ -116,11 +116,13 @@ More Information: [Google Cloud Platform Launch Stages][launch_stages]
 
 Contributions welcome! See the [Contributing Guide](https://github.com/googleapis/nodejs-billing/blob/master/CONTRIBUTING.md).
 
-Please note that this `README.md`, the `samples/README.md`,
+Please note that this [README.md](README.md), the [samples/README.md](samples/README.md),
 and a variety of configuration files in this repository (including `.nycrc` and `tsconfig.json`)
-are generated from a central template. To edit one of these files, make an edit
-to its template in this
-[directory](https://github.com/googleapis/synthtool/tree/master/synthtool/gcp/templates/node_library).
+are generated from a central template.
+
+If you would like to make edits to one of those files
+(or if you aren't certain if the file you're changing is one, check in the template repository before making changes),
+look for the file in the [template](https://github.com/googleapis/synthtool/tree/master/synthtool/gcp/templates/node_library).
 
 ## License
 
