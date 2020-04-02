@@ -20,9 +20,6 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 
-AUTOSYNTH_MULTIPLE_COMMITS = True
-
-
 # run the gapic generator
 name = 'billing'
 gapic = gcp.GAPICMicrogenerator()
