@@ -685,27 +685,29 @@ export class CloudBillingClient {
           protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
           {}|null|undefined>): void;
   getIamPolicy(
-      request: protos.google.iam.v1.IGetIamPolicyRequest,
-      callback: Callback<
-          protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
-          {}|null|undefined>): void;
-/**
- * Gets the access control policy for a billing account.
- * The caller must have the `billing.accounts.getIamPolicy` permission on the
- * account, which is often given to billing account
- * [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {} request.
- * @param {} request.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [Policy]{@link google.iam.v1.Policy}.
- *   The promise has a method named "cancel" which cancels the ongoing API call.
- */
+    request: protos.google.iam.v1.IGetIamPolicyRequest,
+    callback: Callback<
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.IGetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  /**
+   * Gets the access control policy for a billing account.
+   * The caller must have the `billing.accounts.getIamPolicy` permission on the
+   * account, which is often given to billing account
+   * [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {} request.
+   * @param {} request.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Policy]{@link google.iam.v1.Policy}.
+   *   The promise has a method named "cancel" which cancels the ongoing API call.
+   */
   getIamPolicy(
       request: protos.google.iam.v1.IGetIamPolicyRequest,
       optionsOrCallback?: gax.CallOptions|Callback<
@@ -755,28 +757,30 @@ export class CloudBillingClient {
           protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
           {}|null|undefined>): void;
   setIamPolicy(
-      request: protos.google.iam.v1.ISetIamPolicyRequest,
-      callback: Callback<
-          protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
-          {}|null|undefined>): void;
-/**
- * Sets the access control policy for a billing account. Replaces any existing
- * policy.
- * The caller must have the `billing.accounts.setIamPolicy` permission on the
- * account, which is often given to billing account
- * [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {} request.
- * @param {} request.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [Policy]{@link google.iam.v1.Policy}.
- *   The promise has a method named "cancel" which cancels the ongoing API call.
- */
+    request: protos.google.iam.v1.ISetIamPolicyRequest,
+    callback: Callback<
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.ISetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  /**
+   * Sets the access control policy for a billing account. Replaces any existing
+   * policy.
+   * The caller must have the `billing.accounts.setIamPolicy` permission on the
+   * account, which is often given to billing account
+   * [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {} request.
+   * @param {} request.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [Policy]{@link google.iam.v1.Policy}.
+   *   The promise has a method named "cancel" which cancels the ongoing API call.
+   */
   setIamPolicy(
       request: protos.google.iam.v1.ISetIamPolicyRequest,
       optionsOrCallback?: gax.CallOptions|Callback<
@@ -826,26 +830,28 @@ export class CloudBillingClient {
           protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
           {}|null|undefined>): void;
   testIamPermissions(
-      request: protos.google.iam.v1.ITestIamPermissionsRequest,
-      callback: Callback<
-          protos.google.iam.v1.ITestIamPermissionsResponse,
-          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
-          {}|null|undefined>): void;
-/**
- * Tests the access control policy for a billing account. This method takes
- * the resource and a set of permissions as input and returns the subset of
- * the input permissions that the caller is allowed for that resource.
- *
- * @param {Object} request
- *   The request object that will be sent.
- * @param {} request.
- * @param {} request.
- * @param {object} [options]
- *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
- * @returns {Promise} - The promise which resolves to an array.
- *   The first element of the array is an object representing [TestIamPermissionsResponse]{@link google.iam.v1.TestIamPermissionsResponse}.
- *   The promise has a method named "cancel" which cancels the ongoing API call.
- */
+    request: protos.google.iam.v1.ITestIamPermissionsRequest,
+    callback: Callback<
+      protos.google.iam.v1.ITestIamPermissionsResponse,
+      protos.google.iam.v1.ITestIamPermissionsRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
+  /**
+   * Tests the access control policy for a billing account. This method takes
+   * the resource and a set of permissions as input and returns the subset of
+   * the input permissions that the caller is allowed for that resource.
+   *
+   * @param {Object} request
+   *   The request object that will be sent.
+   * @param {} request.
+   * @param {} request.
+   * @param {object} [options]
+   *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
+   * @returns {Promise} - The promise which resolves to an array.
+   *   The first element of the array is an object representing [TestIamPermissionsResponse]{@link google.iam.v1.TestIamPermissionsResponse}.
+   *   The promise has a method named "cancel" which cancels the ongoing API call.
+   */
   testIamPermissions(
       request: protos.google.iam.v1.ITestIamPermissionsRequest,
       optionsOrCallback?: gax.CallOptions|Callback<
