@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/nodejs-billing.git",
-        "sha": "7d1ba04eb4515d937c0857db3b0204b0af358cd0"
+        "sha": "436a28cc649510c5f3f6a6b63b926de8552421bd"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "c1fae183ddeef0c59538863eac611fd679d1b7fb",
-        "internalRef": "314634470"
+        "sha": "5920d376e8771e7dd245a0d1d0341952ca15e41d",
+        "internalRef": "318328852"
       }
     },
     {
