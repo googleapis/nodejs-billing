@@ -383,6 +383,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getBillingAccount(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.get_billing_account.js</caption>
+   * region_tag:billing_get_billing_account_sample
+   *
    */
   getBillingAccount(
     request?: protos.google.cloud.billing.v1.IGetBillingAccountRequest,
@@ -484,6 +488,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.updateBillingAccount(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.update_billing_account.js</caption>
+   * region_tag:billing_update_billing_account_sample
+   *
    */
   updateBillingAccount(
     request?: protos.google.cloud.billing.v1.IUpdateBillingAccountRequest,
@@ -587,6 +595,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.createBillingAccount(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.create_billing_account.js</caption>
+   * region_tag:billing_create_billing_account_sample
+   *
    */
   createBillingAccount(
     request?: protos.google.cloud.billing.v1.ICreateBillingAccountRequest,
@@ -676,6 +688,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getProjectBillingInfo(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.get_project_billing_info.js</caption>
+   * region_tag:billing_get_project_billing_info_sample
+   *
    */
   getProjectBillingInfo(
     request?: protos.google.cloud.billing.v1.IGetProjectBillingInfoRequest,
@@ -804,6 +820,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.updateProjectBillingInfo(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.update_project_billing_info.js</caption>
+   * region_tag:billing_update_project_billing_info_sample
+   *
    */
   updateProjectBillingInfo(
     request?: protos.google.cloud.billing.v1.IUpdateProjectBillingInfoRequest,
@@ -905,6 +925,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getIamPolicy(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.get_iam_policy.js</caption>
+   * region_tag:billing_get_iam_policy_sample
+   *
    */
   getIamPolicy(
     request?: protos.google.iam.v1.IGetIamPolicyRequest,
@@ -998,6 +1022,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.setIamPolicy(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.set_iam_policy.js</caption>
+   * region_tag:billing_set_iam_policy_sample
+   *
    */
   setIamPolicy(
     request?: protos.google.iam.v1.ISetIamPolicyRequest,
@@ -1089,6 +1117,10 @@ export class CloudBillingClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.testIamPermissions(request);
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.test_iam_permissions.js</caption>
+   * region_tag:billing_test_iam_permissions_sample
+   *
    */
   testIamPermissions(
     request?: protos.google.iam.v1.ITestIamPermissionsRequest,
@@ -1194,6 +1226,10 @@ export class CloudBillingClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.list_billing_accounts.js</caption>
+   * region_tag:billing_list_billing_accounts_sample
+   *
    */
   listBillingAccounts(
     request?: protos.google.cloud.billing.v1.IListBillingAccountsRequest,
@@ -1262,6 +1298,10 @@ export class CloudBillingClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.list_billing_accounts.js</caption>
+   * region_tag:billing_list_billing_accounts_sample
+   *
    */
   listBillingAccountsStream(
     request?: protos.google.cloud.billing.v1.IListBillingAccountsRequest,
@@ -1269,7 +1309,8 @@ export class CloudBillingClient {
   ): Transform {
     request = request || {};
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listBillingAccounts'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listBillingAccounts.createStream(
       this.innerApiCalls.listBillingAccounts as gax.GaxCall,
@@ -1313,6 +1354,10 @@ export class CloudBillingClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.list_billing_accounts.js</caption>
+   * region_tag:billing_list_billing_accounts_sample
+   *
    */
   listBillingAccountsAsync(
     request?: protos.google.cloud.billing.v1.IListBillingAccountsRequest,
@@ -1321,7 +1366,8 @@ export class CloudBillingClient {
     request = request || {};
     options = options || {};
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listBillingAccounts'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listBillingAccounts.asyncIterate(
       this.innerApiCalls['listBillingAccounts'] as GaxCall,
@@ -1390,6 +1436,10 @@ export class CloudBillingClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.list_project_billing_info.js</caption>
+   * region_tag:billing_list_project_billing_info_sample
+   *
    */
   listProjectBillingInfo(
     request?: protos.google.cloud.billing.v1.IListProjectBillingInfoRequest,
@@ -1464,6 +1514,10 @@ export class CloudBillingClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.list_project_billing_info.js</caption>
+   * region_tag:billing_list_project_billing_info_sample
+   *
    */
   listProjectBillingInfoStream(
     request?: protos.google.cloud.billing.v1.IListProjectBillingInfoRequest,
@@ -1477,7 +1531,8 @@ export class CloudBillingClient {
       gax.routingHeader.fromParams({
         name: request.name || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listProjectBillingInfo'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listProjectBillingInfo.createStream(
       this.innerApiCalls.listProjectBillingInfo as gax.GaxCall,
@@ -1517,6 +1572,10 @@ export class CloudBillingClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1/cloud_billing.list_project_billing_info.js</caption>
+   * region_tag:billing_list_project_billing_info_sample
+   *
    */
   listProjectBillingInfoAsync(
     request?: protos.google.cloud.billing.v1.IListProjectBillingInfoRequest,
@@ -1531,7 +1590,8 @@ export class CloudBillingClient {
         name: request.name || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listProjectBillingInfo'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listProjectBillingInfo.asyncIterate(
       this.innerApiCalls['listProjectBillingInfo'] as GaxCall,

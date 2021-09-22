@@ -12,39 +12,43 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START billing_get_project_billing_info_sample]
+function main() {
+  // [START billing_list_services_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the project for which billing information is
-   *  retrieved. For example, `projects/tokyo-rain-123`.
+   *  Requested page size. Defaults to 5000.
    */
-  // const name = 'abc123'
+  // const pageSize = 1234
+  /**
+   *  A token identifying a page of results to return. This should be a
+   *  `next_page_token` value returned from a previous `ListServices`
+   *  call. If unspecified, the first page of results is returned.
+   */
+  // const pageToken = 'abc123'
 
   // Imports the Billing library
-  const {CloudBillingClient} = require('@google-cloud/billing').v1;
+  const {CloudCatalogClient} = require('@google-cloud/billing').v1;
 
   // Instantiates a client
-  const billingClient = new CloudBillingClient();
+  const billingClient = new CloudCatalogClient();
 
-  async function getProjectBillingInfo() {
+  async function listServices() {
     // Construct request
-    const request = {
-      name,
-    };
+    const request = {};
 
     // Run request
-    const response = await billingClient.getProjectBillingInfo(request);
-    console.log(response);
+    const iterable = await billingClient.listServicesAsync(request);
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  getProjectBillingInfo();
-  // [END billing_get_project_billing_info_sample]
+  listServices();
+  // [END billing_list_services_sample]
 }
 
 process.on('unhandledRejection', err => {

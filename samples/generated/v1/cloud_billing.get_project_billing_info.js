@@ -12,27 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name, account) {
-  // [START billing_update_billing_account_sample]
+function main(name) {
+  // [START billing_get_project_billing_info_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the billing account resource to be updated.
+   *  Required. The resource name of the project for which billing information is
+   *  retrieved. For example, `projects/tokyo-rain-123`.
    */
   // const name = 'abc123'
-  /**
-   *  Required. The billing account resource to replace the resource on the server.
-   */
-  // const account = ''
-  /**
-   *  The update mask applied to the resource.
-   *  Only "display_name" is currently supported.
-   */
-  // const updateMask = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -40,20 +31,19 @@ function main(name, account) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function updateBillingAccount() {
+  async function getProjectBillingInfo() {
     // Construct request
     const request = {
       name,
-      account,
     };
 
     // Run request
-    const response = await billingClient.updateBillingAccount(request);
+    const response = await billingClient.getProjectBillingInfo(request);
     console.log(response);
   }
 
-  updateBillingAccount();
-  // [END billing_update_billing_account_sample]
+  getProjectBillingInfo();
+  // [END billing_get_project_billing_info_sample]
 }
 
 process.on('unhandledRejection', err => {

@@ -12,19 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START billing_get_billing_account_sample]
+function main(resource) {
+  // [START billing_get_iam_policy_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the billing account to retrieve. For example,
-   *  `billingAccounts/012345-567890-ABCDEF`.
+   *  REQUIRED: The resource for which the policy is being requested.
+   *  See the operation documentation for the appropriate value for this field.
    */
-  // const name = 'abc123'
+  // const resource = 'abc123'
+  /**
+   *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+   *  `GetIamPolicy`. This field is only used by Cloud IAM.
+   */
+  // const options = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -32,19 +36,19 @@ function main(name) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function getBillingAccount() {
+  async function getIamPolicy() {
     // Construct request
     const request = {
-      name,
+      resource,
     };
 
     // Run request
-    const response = await billingClient.getBillingAccount(request);
+    const response = await billingClient.getIamPolicy(request);
     console.log(response);
   }
 
-  getBillingAccount();
-  // [END billing_get_billing_account_sample]
+  getIamPolicy();
+  // [END billing_get_iam_policy_sample]
 }
 
 process.on('unhandledRejection', err => {

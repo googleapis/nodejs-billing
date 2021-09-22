@@ -12,34 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main() {
-  // [START billing_list_billing_accounts_sample]
+function main(name, account) {
+  // [START billing_update_billing_account_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Requested page size. The maximum page size is 100; this is also the
-   *  default.
+   *  Required. The name of the billing account resource to be updated.
    */
-  // const pageSize = 1234
+  // const name = 'abc123'
   /**
-   *  A token identifying a page of results to return. This should be a
-   *  `next_page_token` value returned from a previous `ListBillingAccounts`
-   *  call. If unspecified, the first page of results is returned.
+   *  Required. The billing account resource to replace the resource on the server.
    */
-  // const pageToken = 'abc123'
+  // const account = ''
   /**
-   *  Options for how to filter the returned billing accounts.
-   *  Currently this only supports filtering for
-   *  [subaccounts](https://cloud.google.com/billing/docs/concepts) under a
-   *  single provided reseller billing account.
-   *  (e.g. "master_billing_account=billingAccounts/012345-678901-ABCDEF").
-   *  Boolean algebra and other fields are not currently supported.
+   *  The update mask applied to the resource.
+   *  Only "display_name" is currently supported.
    */
-  // const filter = 'abc123'
+  // const updateMask = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -47,20 +39,20 @@ function main() {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function listBillingAccounts() {
+  async function updateBillingAccount() {
     // Construct request
     const request = {
+      name,
+      account,
     };
 
     // Run request
-    const iterable = await billingClient.listBillingAccountsAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await billingClient.updateBillingAccount(request);
+    console.log(response);
   }
 
-  listBillingAccounts();
-  // [END billing_list_billing_accounts_sample]
+  updateBillingAccount();
+  // [END billing_update_billing_account_sample]
 }
 
 process.on('unhandledRejection', err => {

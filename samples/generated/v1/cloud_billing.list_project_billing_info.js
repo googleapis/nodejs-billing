@@ -12,21 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(billingAccount) {
-  // [START billing_create_billing_account_sample]
+function main(name) {
+  // [START billing_list_project_billing_info_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The billing account resource to create.
-   *  Currently CreateBillingAccount only supports subaccount creation, so
-   *  any created billing accounts must be under a provided master billing
-   *  account.
+   *  Required. The resource name of the billing account associated with the projects that
+   *  you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
    */
-  // const billingAccount = ''
+  // const name = 'abc123'
+  /**
+   *  Requested page size. The maximum page size is 100; this is also the
+   *  default.
+   */
+  // const pageSize = 1234
+  /**
+   *  A token identifying a page of results to be returned. This should be a
+   *  `next_page_token` value returned from a previous `ListProjectBillingInfo`
+   *  call. If unspecified, the first page of results is returned.
+   */
+  // const pageToken = 'abc123'
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -34,19 +42,21 @@ function main(billingAccount) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function createBillingAccount() {
+  async function listProjectBillingInfo() {
     // Construct request
     const request = {
-      billingAccount,
+      name,
     };
 
     // Run request
-    const response = await billingClient.createBillingAccount(request);
-    console.log(response);
+    const iterable = await billingClient.listProjectBillingInfoAsync(request);
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  createBillingAccount();
-  // [END billing_create_billing_account_sample]
+  listProjectBillingInfo();
+  // [END billing_list_project_billing_info_sample]
 }
 
 process.on('unhandledRejection', err => {

@@ -12,26 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(resource, policy) {
-  // [START billing_set_iam_policy_sample]
+function main(name) {
+  // [START billing_update_project_billing_info_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  REQUIRED: The resource for which the policy is being specified.
-   *  See the operation documentation for the appropriate value for this field.
+   *  Required. The resource name of the project associated with the billing information
+   *  that you want to update. For example, `projects/tokyo-rain-123`.
    */
-  // const resource = 'abc123'
+  // const name = 'abc123'
   /**
-   *  REQUIRED: The complete policy to be applied to the `resource`. The size of
-   *  the policy is limited to a few 10s of KB. An empty policy is a
-   *  valid policy but certain Cloud Platform services (such as Projects)
-   *  might reject them.
+   *  The new billing information for the project. Read-only fields are ignored;
+   *  thus, you can leave empty all fields except `billing_account_name`.
    */
-  // const policy = ''
+  // const projectBillingInfo = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -39,20 +36,19 @@ function main(resource, policy) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function setIamPolicy() {
+  async function updateProjectBillingInfo() {
     // Construct request
     const request = {
-      resource,
-      policy,
+      name,
     };
 
     // Run request
-    const response = await billingClient.setIamPolicy(request);
+    const response = await billingClient.updateProjectBillingInfo(request);
     console.log(response);
   }
 
-  setIamPolicy();
-  // [END billing_set_iam_policy_sample]
+  updateProjectBillingInfo();
+  // [END billing_update_project_billing_info_sample]
 }
 
 process.on('unhandledRejection', err => {

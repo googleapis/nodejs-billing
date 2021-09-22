@@ -12,26 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(resource, permissions) {
-  // [START billing_test_iam_permissions_sample]
+function main(billingAccount) {
+  // [START billing_create_billing_account_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  REQUIRED: The resource for which the policy detail is being requested.
-   *  See the operation documentation for the appropriate value for this field.
+   *  Required. The billing account resource to create.
+   *  Currently CreateBillingAccount only supports subaccount creation, so
+   *  any created billing accounts must be under a provided master billing
+   *  account.
    */
-  // const resource = 'abc123'
-  /**
-   *  The set of permissions to check for the `resource`. Permissions with
-   *  wildcards (such as '*' or 'storage.*') are not allowed. For more
-   *  information see
-   *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
-   */
-  // const permissions = 'abc123'
+  // const billingAccount = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -39,20 +33,19 @@ function main(resource, permissions) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function testIamPermissions() {
+  async function createBillingAccount() {
     // Construct request
     const request = {
-      resource,
-      permissions,
+      billingAccount,
     };
 
     // Run request
-    const response = await billingClient.testIamPermissions(request);
+    const response = await billingClient.createBillingAccount(request);
     console.log(response);
   }
 
-  testIamPermissions();
-  // [END billing_test_iam_permissions_sample]
+  createBillingAccount();
+  // [END billing_create_billing_account_sample]
 }
 
 process.on('unhandledRejection', err => {

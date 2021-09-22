@@ -12,45 +12,46 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main() {
-  // [START billing_list_services_sample]
+function main(resource, permissions) {
+  // [START billing_test_iam_permissions_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Requested page size. Defaults to 5000.
+   *  REQUIRED: The resource for which the policy detail is being requested.
+   *  See the operation documentation for the appropriate value for this field.
    */
-  // const pageSize = 1234
+  // const resource = 'abc123'
   /**
-   *  A token identifying a page of results to return. This should be a
-   *  `next_page_token` value returned from a previous `ListServices`
-   *  call. If unspecified, the first page of results is returned.
+   *  The set of permissions to check for the `resource`. Permissions with
+   *  wildcards (such as '*' or 'storage.*') are not allowed. For more
+   *  information see
+   *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
    */
-  // const pageToken = 'abc123'
+  // const permissions = 'abc123'
 
   // Imports the Billing library
-  const {CloudCatalogClient} = require('@google-cloud/billing').v1;
+  const {CloudBillingClient} = require('@google-cloud/billing').v1;
 
   // Instantiates a client
-  const billingClient = new CloudCatalogClient();
+  const billingClient = new CloudBillingClient();
 
-  async function listServices() {
+  async function testIamPermissions() {
     // Construct request
     const request = {
+      resource,
+      permissions,
     };
 
     // Run request
-    const iterable = await billingClient.listServicesAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await billingClient.testIamPermissions(request);
+    console.log(response);
   }
 
-  listServices();
-  // [END billing_list_services_sample]
+  testIamPermissions();
+  // [END billing_test_iam_permissions_sample]
 }
 
 process.on('unhandledRejection', err => {
