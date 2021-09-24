@@ -12,19 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START billing_v1_generated_CloudBilling_GetBillingAccount_async]
+function main(billingAccount) {
+  // [START billing_v1_generated_CloudBilling_CreateBillingAccount_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the billing account to retrieve. For example,
-   *  `billingAccounts/012345-567890-ABCDEF`.
+   *  Required. The billing account resource to create.
+   *  Currently CreateBillingAccount only supports subaccount creation, so
+   *  any created billing accounts must be under a provided master billing
+   *  account.
    */
-  // const name = 'abc123'
+  // const billingAccount = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -32,19 +33,19 @@ function main(name) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function getBillingAccount() {
+  async function createBillingAccount() {
     // Construct request
     const request = {
-      name,
+      billingAccount,
     };
 
     // Run request
-    const response = await billingClient.getBillingAccount(request);
+    const response = await billingClient.createBillingAccount(request);
     console.log(response);
   }
 
-  getBillingAccount();
-  // [END billing_v1_generated_CloudBilling_GetBillingAccount_async]
+  createBillingAccount();
+  // [END billing_v1_generated_CloudBilling_CreateBillingAccount_async]
 }
 
 process.on('unhandledRejection', err => {

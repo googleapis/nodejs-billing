@@ -12,26 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(resource, permissions) {
-  // [START billing_v1_generated_CloudBilling_TestIamPermissions_async]
+function main(name) {
+  // [START billing_v1_generated_CloudBilling_GetProjectBillingInfo_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  REQUIRED: The resource for which the policy detail is being requested.
-   *  See the operation documentation for the appropriate value for this field.
+   *  Required. The resource name of the project for which billing information is
+   *  retrieved. For example, `projects/tokyo-rain-123`.
    */
-  // const resource = 'abc123'
-  /**
-   *  The set of permissions to check for the `resource`. Permissions with
-   *  wildcards (such as '*' or 'storage.*') are not allowed. For more
-   *  information see
-   *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
-   */
-  // const permissions = 'abc123'
+  // const name = 'abc123'
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -39,20 +31,19 @@ function main(resource, permissions) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function testIamPermissions() {
+  async function getProjectBillingInfo() {
     // Construct request
     const request = {
-      resource,
-      permissions,
+      name,
     };
 
     // Run request
-    const response = await billingClient.testIamPermissions(request);
+    const response = await billingClient.getProjectBillingInfo(request);
     console.log(response);
   }
 
-  testIamPermissions();
-  // [END billing_v1_generated_CloudBilling_TestIamPermissions_async]
+  getProjectBillingInfo();
+  // [END billing_v1_generated_CloudBilling_GetProjectBillingInfo_async]
 }
 
 process.on('unhandledRejection', err => {

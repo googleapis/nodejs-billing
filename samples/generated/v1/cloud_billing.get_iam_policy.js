@@ -12,24 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START billing_v1_generated_CloudBilling_UpdateProjectBillingInfo_async]
+function main(resource) {
+  // [START billing_v1_generated_CloudBilling_GetIamPolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the project associated with the billing information
-   *  that you want to update. For example, `projects/tokyo-rain-123`.
+   *  REQUIRED: The resource for which the policy is being requested.
+   *  See the operation documentation for the appropriate value for this field.
    */
-  // const name = 'abc123'
+  // const resource = 'abc123'
   /**
-   *  The new billing information for the project. Read-only fields are ignored;
-   *  thus, you can leave empty all fields except `billing_account_name`.
+   *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
+   *  `GetIamPolicy`. This field is only used by Cloud IAM.
    */
-  // const projectBillingInfo = ''
+  // const options = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -37,19 +36,19 @@ function main(name) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function updateProjectBillingInfo() {
+  async function getIamPolicy() {
     // Construct request
     const request = {
-      name,
+      resource,
     };
 
     // Run request
-    const response = await billingClient.updateProjectBillingInfo(request);
+    const response = await billingClient.getIamPolicy(request);
     console.log(response);
   }
 
-  updateProjectBillingInfo();
-  // [END billing_v1_generated_CloudBilling_UpdateProjectBillingInfo_async]
+  getIamPolicy();
+  // [END billing_v1_generated_CloudBilling_GetIamPolicy_async]
 }
 
 process.on('unhandledRejection', err => {

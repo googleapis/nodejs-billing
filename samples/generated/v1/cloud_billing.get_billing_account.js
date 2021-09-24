@@ -12,27 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name, account) {
-  // [START billing_v1_generated_CloudBilling_UpdateBillingAccount_async]
+function main(name) {
+  // [START billing_v1_generated_CloudBilling_GetBillingAccount_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the billing account resource to be updated.
+   *  Required. The resource name of the billing account to retrieve. For example,
+   *  `billingAccounts/012345-567890-ABCDEF`.
    */
   // const name = 'abc123'
-  /**
-   *  Required. The billing account resource to replace the resource on the server.
-   */
-  // const account = ''
-  /**
-   *  The update mask applied to the resource.
-   *  Only "display_name" is currently supported.
-   */
-  // const updateMask = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -40,20 +31,19 @@ function main(name, account) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function updateBillingAccount() {
+  async function getBillingAccount() {
     // Construct request
     const request = {
       name,
-      account,
     };
 
     // Run request
-    const response = await billingClient.updateBillingAccount(request);
+    const response = await billingClient.getBillingAccount(request);
     console.log(response);
   }
 
-  updateBillingAccount();
-  // [END billing_v1_generated_CloudBilling_UpdateBillingAccount_async]
+  getBillingAccount();
+  // [END billing_v1_generated_CloudBilling_GetBillingAccount_async]
 }
 
 process.on('unhandledRejection', err => {

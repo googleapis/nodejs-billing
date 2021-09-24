@@ -12,21 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(billingAccount) {
-  // [START billing_v1_generated_CloudBilling_CreateBillingAccount_async]
+function main(name, account) {
+  // [START billing_v1_generated_CloudBilling_UpdateBillingAccount_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The billing account resource to create.
-   *  Currently CreateBillingAccount only supports subaccount creation, so
-   *  any created billing accounts must be under a provided master billing
-   *  account.
+   *  Required. The name of the billing account resource to be updated.
    */
-  // const billingAccount = ''
+  // const name = 'abc123'
+  /**
+   *  Required. The billing account resource to replace the resource on the server.
+   */
+  // const account = ''
+  /**
+   *  The update mask applied to the resource.
+   *  Only "display_name" is currently supported.
+   */
+  // const updateMask = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -34,19 +39,20 @@ function main(billingAccount) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function createBillingAccount() {
+  async function updateBillingAccount() {
     // Construct request
     const request = {
-      billingAccount,
+      name,
+      account,
     };
 
     // Run request
-    const response = await billingClient.createBillingAccount(request);
+    const response = await billingClient.updateBillingAccount(request);
     console.log(response);
   }
 
-  createBillingAccount();
-  // [END billing_v1_generated_CloudBilling_CreateBillingAccount_async]
+  updateBillingAccount();
+  // [END billing_v1_generated_CloudBilling_UpdateBillingAccount_async]
 }
 
 process.on('unhandledRejection', err => {

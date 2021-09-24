@@ -12,19 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START billing_v1_generated_CloudBilling_GetProjectBillingInfo_async]
+function main(resource, policy) {
+  // [START billing_v1_generated_CloudBilling_SetIamPolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the project for which billing information is
-   *  retrieved. For example, `projects/tokyo-rain-123`.
+   *  REQUIRED: The resource for which the policy is being specified.
+   *  See the operation documentation for the appropriate value for this field.
    */
-  // const name = 'abc123'
+  // const resource = 'abc123'
+  /**
+   *  REQUIRED: The complete policy to be applied to the `resource`. The size of
+   *  the policy is limited to a few 10s of KB. An empty policy is a
+   *  valid policy but certain Cloud Platform services (such as Projects)
+   *  might reject them.
+   */
+  // const policy = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -32,19 +38,20 @@ function main(name) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function getProjectBillingInfo() {
+  async function setIamPolicy() {
     // Construct request
     const request = {
-      name,
+      resource,
+      policy,
     };
 
     // Run request
-    const response = await billingClient.getProjectBillingInfo(request);
+    const response = await billingClient.setIamPolicy(request);
     console.log(response);
   }
 
-  getProjectBillingInfo();
-  // [END billing_v1_generated_CloudBilling_GetProjectBillingInfo_async]
+  setIamPolicy();
+  // [END billing_v1_generated_CloudBilling_SetIamPolicy_async]
 }
 
 process.on('unhandledRejection', err => {

@@ -12,47 +12,43 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(resource, policy) {
-  // [START billing_v1_generated_CloudBilling_SetIamPolicy_async]
+function main() {
+  // [START billing_v1_generated_CloudCatalog_ListServices_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  REQUIRED: The resource for which the policy is being specified.
-   *  See the operation documentation for the appropriate value for this field.
+   *  Requested page size. Defaults to 5000.
    */
-  // const resource = 'abc123'
+  // const pageSize = 1234
   /**
-   *  REQUIRED: The complete policy to be applied to the `resource`. The size of
-   *  the policy is limited to a few 10s of KB. An empty policy is a
-   *  valid policy but certain Cloud Platform services (such as Projects)
-   *  might reject them.
+   *  A token identifying a page of results to return. This should be a
+   *  `next_page_token` value returned from a previous `ListServices`
+   *  call. If unspecified, the first page of results is returned.
    */
-  // const policy = ''
+  // const pageToken = 'abc123'
 
   // Imports the Billing library
-  const {CloudBillingClient} = require('@google-cloud/billing').v1;
+  const {CloudCatalogClient} = require('@google-cloud/billing').v1;
 
   // Instantiates a client
-  const billingClient = new CloudBillingClient();
+  const billingClient = new CloudCatalogClient();
 
-  async function setIamPolicy() {
+  async function listServices() {
     // Construct request
-    const request = {
-      resource,
-      policy,
-    };
+    const request = {};
 
     // Run request
-    const response = await billingClient.setIamPolicy(request);
-    console.log(response);
+    const iterable = await billingClient.listServicesAsync(request);
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  setIamPolicy();
-  // [END billing_v1_generated_CloudBilling_SetIamPolicy_async]
+  listServices();
+  // [END billing_v1_generated_CloudCatalog_ListServices_async]
 }
 
 process.on('unhandledRejection', err => {
