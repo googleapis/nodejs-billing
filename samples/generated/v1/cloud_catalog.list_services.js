@@ -12,44 +12,43 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(resource) {
-  // [START cloudbilling_v1_generated_CloudBilling_GetIamPolicy_async]
+function main() {
+  // [START cloudbilling_v1_generated_CloudCatalog_ListServices_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  REQUIRED: The resource for which the policy is being requested.
-   *  See the operation documentation for the appropriate value for this field.
+   *  Requested page size. Defaults to 5000.
    */
-  // const resource = 'abc123'
+  // const pageSize = 1234
   /**
-   *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
-   *  `GetIamPolicy`. This field is only used by Cloud IAM.
+   *  A token identifying a page of results to return. This should be a
+   *  `next_page_token` value returned from a previous `ListServices`
+   *  call. If unspecified, the first page of results is returned.
    */
-  // const options = ''
+  // const pageToken = 'abc123'
 
   // Imports the Billing library
-  const {CloudBillingClient} = require('@google-cloud/billing').v1;
+  const {CloudCatalogClient} = require('@google-cloud/billing').v1;
 
   // Instantiates a client
-  const billingClient = new CloudBillingClient();
+  const billingClient = new CloudCatalogClient();
 
-  async function getIamPolicy() {
+  async function listServices() {
     // Construct request
-    const request = {
-      resource,
-    };
+    const request = {};
 
     // Run request
-    const response = await billingClient.getIamPolicy(request);
-    console.log(response);
+    const iterable = await billingClient.listServicesAsync(request);
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  getIamPolicy();
-  // [END cloudbilling_v1_generated_CloudBilling_GetIamPolicy_async]
+  listServices();
+  // [END cloudbilling_v1_generated_CloudCatalog_ListServices_async]
 }
 
 process.on('unhandledRejection', err => {

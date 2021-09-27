@@ -12,24 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(name) {
-  // [START cloudbilling_v1_generated_CloudBilling_UpdateProjectBillingInfo_async]
+  // [START cloudbilling_v1_generated_CloudBilling_GetProjectBillingInfo_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the project associated with the billing information
-   *  that you want to update. For example, `projects/tokyo-rain-123`.
+   *  Required. The resource name of the project for which billing information is
+   *  retrieved. For example, `projects/tokyo-rain-123`.
    */
   // const name = 'abc123'
-  /**
-   *  The new billing information for the project. Read-only fields are ignored;
-   *  thus, you can leave empty all fields except `billing_account_name`.
-   */
-  // const projectBillingInfo = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -37,19 +31,19 @@ function main(name) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function updateProjectBillingInfo() {
+  async function getProjectBillingInfo() {
     // Construct request
     const request = {
       name,
     };
 
     // Run request
-    const response = await billingClient.updateProjectBillingInfo(request);
+    const response = await billingClient.getProjectBillingInfo(request);
     console.log(response);
   }
 
-  updateProjectBillingInfo();
-  // [END cloudbilling_v1_generated_CloudBilling_UpdateProjectBillingInfo_async]
+  getProjectBillingInfo();
+  // [END cloudbilling_v1_generated_CloudBilling_GetProjectBillingInfo_async]
 }
 
 process.on('unhandledRejection', err => {

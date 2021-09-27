@@ -12,45 +12,53 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main() {
-  // [START cloudbilling_v1_generated_CloudCatalog_ListServices_async]
+  // [START cloudbilling_v1_generated_CloudBilling_ListBillingAccounts_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Requested page size. Defaults to 5000.
+   *  Requested page size. The maximum page size is 100; this is also the
+   *  default.
    */
   // const pageSize = 1234
   /**
    *  A token identifying a page of results to return. This should be a
-   *  `next_page_token` value returned from a previous `ListServices`
+   *  `next_page_token` value returned from a previous `ListBillingAccounts`
    *  call. If unspecified, the first page of results is returned.
    */
   // const pageToken = 'abc123'
+  /**
+   *  Options for how to filter the returned billing accounts.
+   *  Currently this only supports filtering for
+   *  [subaccounts](https://cloud.google.com/billing/docs/concepts) under a
+   *  single provided reseller billing account.
+   *  (e.g. "master_billing_account=billingAccounts/012345-678901-ABCDEF").
+   *  Boolean algebra and other fields are not currently supported.
+   */
+  // const filter = 'abc123'
 
   // Imports the Billing library
-  const {CloudCatalogClient} = require('@google-cloud/billing').v1;
+  const {CloudBillingClient} = require('@google-cloud/billing').v1;
 
   // Instantiates a client
-  const billingClient = new CloudCatalogClient();
+  const billingClient = new CloudBillingClient();
 
-  async function listServices() {
+  async function listBillingAccounts() {
     // Construct request
-    const request = {
-    };
+    const request = {};
 
     // Run request
-    const iterable = await billingClient.listServicesAsync(request);
+    const iterable = await billingClient.listBillingAccountsAsync(request);
     for await (const response of iterable) {
-        console.log(response);
+      console.log(response);
     }
   }
 
-  listServices();
-  // [END cloudbilling_v1_generated_CloudCatalog_ListServices_async]
+  listBillingAccounts();
+  // [END cloudbilling_v1_generated_CloudBilling_ListBillingAccounts_async]
 }
 
 process.on('unhandledRejection', err => {

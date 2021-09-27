@@ -12,21 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(billingAccount) {
-  // [START cloudbilling_v1_generated_CloudBilling_CreateBillingAccount_async]
+function main(name) {
+  // [START cloudbilling_v1_generated_CloudBilling_UpdateProjectBillingInfo_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The billing account resource to create.
-   *  Currently CreateBillingAccount only supports subaccount creation, so
-   *  any created billing accounts must be under a provided master billing
-   *  account.
+   *  Required. The resource name of the project associated with the billing information
+   *  that you want to update. For example, `projects/tokyo-rain-123`.
    */
-  // const billingAccount = ''
+  // const name = 'abc123'
+  /**
+   *  The new billing information for the project. Read-only fields are ignored;
+   *  thus, you can leave empty all fields except `billing_account_name`.
+   */
+  // const projectBillingInfo = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -34,19 +36,19 @@ function main(billingAccount) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function createBillingAccount() {
+  async function updateProjectBillingInfo() {
     // Construct request
     const request = {
-      billingAccount,
+      name,
     };
 
     // Run request
-    const response = await billingClient.createBillingAccount(request);
+    const response = await billingClient.updateProjectBillingInfo(request);
     console.log(response);
   }
 
-  createBillingAccount();
-  // [END cloudbilling_v1_generated_CloudBilling_CreateBillingAccount_async]
+  updateProjectBillingInfo();
+  // [END cloudbilling_v1_generated_CloudBilling_UpdateProjectBillingInfo_async]
 }
 
 process.on('unhandledRejection', err => {

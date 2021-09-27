@@ -12,26 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(resource, permissions) {
-  // [START cloudbilling_v1_generated_CloudBilling_TestIamPermissions_async]
+function main(name, account) {
+  // [START cloudbilling_v1_generated_CloudBilling_UpdateBillingAccount_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  REQUIRED: The resource for which the policy detail is being requested.
-   *  See the operation documentation for the appropriate value for this field.
+   *  Required. The name of the billing account resource to be updated.
    */
-  // const resource = 'abc123'
+  // const name = 'abc123'
   /**
-   *  The set of permissions to check for the `resource`. Permissions with
-   *  wildcards (such as '*' or 'storage.*') are not allowed. For more
-   *  information see
-   *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+   *  Required. The billing account resource to replace the resource on the server.
    */
-  // const permissions = 'abc123'
+  // const account = ''
+  /**
+   *  The update mask applied to the resource.
+   *  Only "display_name" is currently supported.
+   */
+  // const updateMask = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -39,20 +39,20 @@ function main(resource, permissions) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function testIamPermissions() {
+  async function updateBillingAccount() {
     // Construct request
     const request = {
-      resource,
-      permissions,
+      name,
+      account,
     };
 
     // Run request
-    const response = await billingClient.testIamPermissions(request);
+    const response = await billingClient.updateBillingAccount(request);
     console.log(response);
   }
 
-  testIamPermissions();
-  // [END cloudbilling_v1_generated_CloudBilling_TestIamPermissions_async]
+  updateBillingAccount();
+  // [END cloudbilling_v1_generated_CloudBilling_UpdateBillingAccount_async]
 }
 
 process.on('unhandledRejection', err => {

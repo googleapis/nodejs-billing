@@ -12,30 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(name) {
-  // [START cloudbilling_v1_generated_CloudBilling_ListProjectBillingInfo_async]
+function main(resource, policy) {
+  // [START cloudbilling_v1_generated_CloudBilling_SetIamPolicy_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the billing account associated with the projects that
-   *  you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
+   *  REQUIRED: The resource for which the policy is being specified.
+   *  See the operation documentation for the appropriate value for this field.
    */
-  // const name = 'abc123'
+  // const resource = 'abc123'
   /**
-   *  Requested page size. The maximum page size is 100; this is also the
-   *  default.
+   *  REQUIRED: The complete policy to be applied to the `resource`. The size of
+   *  the policy is limited to a few 10s of KB. An empty policy is a
+   *  valid policy but certain Cloud Platform services (such as Projects)
+   *  might reject them.
    */
-  // const pageSize = 1234
-  /**
-   *  A token identifying a page of results to be returned. This should be a
-   *  `next_page_token` value returned from a previous `ListProjectBillingInfo`
-   *  call. If unspecified, the first page of results is returned.
-   */
-  // const pageToken = 'abc123'
+  // const policy = ''
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -43,21 +38,20 @@ function main(name) {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function listProjectBillingInfo() {
+  async function setIamPolicy() {
     // Construct request
     const request = {
-      name,
+      resource,
+      policy,
     };
 
     // Run request
-    const iterable = await billingClient.listProjectBillingInfoAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await billingClient.setIamPolicy(request);
+    console.log(response);
   }
 
-  listProjectBillingInfo();
-  // [END cloudbilling_v1_generated_CloudBilling_ListProjectBillingInfo_async]
+  setIamPolicy();
+  // [END cloudbilling_v1_generated_CloudBilling_SetIamPolicy_async]
 }
 
 process.on('unhandledRejection', err => {

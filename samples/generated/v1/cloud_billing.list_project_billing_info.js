@@ -12,34 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main() {
-  // [START cloudbilling_v1_generated_CloudBilling_ListBillingAccounts_async]
+function main(name) {
+  // [START cloudbilling_v1_generated_CloudBilling_ListProjectBillingInfo_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
+  /**
+   *  Required. The resource name of the billing account associated with the projects that
+   *  you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
+   */
+  // const name = 'abc123'
   /**
    *  Requested page size. The maximum page size is 100; this is also the
    *  default.
    */
   // const pageSize = 1234
   /**
-   *  A token identifying a page of results to return. This should be a
-   *  `next_page_token` value returned from a previous `ListBillingAccounts`
+   *  A token identifying a page of results to be returned. This should be a
+   *  `next_page_token` value returned from a previous `ListProjectBillingInfo`
    *  call. If unspecified, the first page of results is returned.
    */
   // const pageToken = 'abc123'
-  /**
-   *  Options for how to filter the returned billing accounts.
-   *  Currently this only supports filtering for
-   *  [subaccounts](https://cloud.google.com/billing/docs/concepts) under a
-   *  single provided reseller billing account.
-   *  (e.g. "master_billing_account=billingAccounts/012345-678901-ABCDEF").
-   *  Boolean algebra and other fields are not currently supported.
-   */
-  // const filter = 'abc123'
 
   // Imports the Billing library
   const {CloudBillingClient} = require('@google-cloud/billing').v1;
@@ -47,20 +42,21 @@ function main() {
   // Instantiates a client
   const billingClient = new CloudBillingClient();
 
-  async function listBillingAccounts() {
+  async function listProjectBillingInfo() {
     // Construct request
     const request = {
+      name,
     };
 
     // Run request
-    const iterable = await billingClient.listBillingAccountsAsync(request);
+    const iterable = await billingClient.listProjectBillingInfoAsync(request);
     for await (const response of iterable) {
-        console.log(response);
+      console.log(response);
     }
   }
 
-  listBillingAccounts();
-  // [END cloudbilling_v1_generated_CloudBilling_ListBillingAccounts_async]
+  listProjectBillingInfo();
+  // [END cloudbilling_v1_generated_CloudBilling_ListProjectBillingInfo_async]
 }
 
 process.on('unhandledRejection', err => {
