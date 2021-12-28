@@ -12,5 +12,5 @@
   "api_id": "cloudbilling.googleapis.com",
   "issue_tracker": "https://issuetracker.google.com/savedsearches/559770",
   "api_shortname": "billing",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
